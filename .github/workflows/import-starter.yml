@@ -25,8 +25,9 @@ jobs:
           test -f "$RUNNER_TEMP/medmitra-extracted/MedMitra/lib/main.dart"
           test -f "$RUNNER_TEMP/medmitra-extracted/MedMitra/pubspec.yaml"
           cp -a "$RUNNER_TEMP/medmitra-extracted/MedMitra/." .
+          mkdir -p docs
+          mv .github/workflows/flutter.yml docs/flutter-ci.example.yml
           rm -rf bootstrap
-          rm .github/workflows/import-starter.yml
           python3 scripts/check_source.py
 
       - name: Commit unpacked Flutter source
